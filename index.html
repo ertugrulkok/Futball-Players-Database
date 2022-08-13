@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div class="row g-2">
+        <div class="col-auto">
+          <select class="form-select" v-model="inputcountry">
+            <option value="">Country</option>
+            <option value="Turkey">Turkey</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Uruguay">Uruguay</option>
+            <option value="Belgium">Belgium</option>
+            <option value="Netherlands">Netherlands</option>
+            <option value="France">France</option>
+            <option value="Norway">Norway</option>
+            <option value="Switzerland">Switzerland</option>
+            <option value="Portugal">Portugal</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <select class="form-select" v-model="inputclub">
+            <option value="">Club</option>
+            <option value="Galatasaray">Galatasaray</option>
+            <option value="Borissia Dordmund">Borissia Dordmund</option>
+            <option value="Manchester United">Manchester United</option>
+            <option value="Paris Saint-Germain">Paris Saint-Germain</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <select class="form-select" v-model="preferredfoot">
+            <option value="">Preferred Foot</option>
+            <option value="Right">Right</option>
+            <option value="Left">Left</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <select class="form-select" v-model="minage">
+            <option value="">Min.Age</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+            <option value="32">32</option>
+            <option value="33">33</option>
+            <option value="34">34</option>
+            <option value="35">35</option>
+            <option value="36">36</option>
+            <option value="37">37</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <select class="form-select" v-model="maxage">
+            <option value="">Max.Age</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+            <option value="32">32</option>
+            <option value="33">33</option>
+            <option value="34">34</option>
+            <option value="35">35</option>
+            <option value="36">36</option>
+            <option value="37">37</option>
+          </select>
+        </div>
+
+        <div class="col-auto">
+          <button
+            type="submit"
+            @click="searchbyAge"
+            class="btn btn-primary mb-3"
+          >
+            Search by Age
+          </button>
+        </div>
+      </div>
+      <div class="main_wrappper">
+        <div v-if="active" class="wrapper">
+          <div class="card" v-for="post in postList">
+            <a>
+              <img v-bind:src="post.img" />
+              <h4>{{ post.name }}</h4>
+              <h6>Country: {{ post.country }}</h6>
+              <h6>Club: {{ post.club }}</h6>
+              <h6>Height: {{ post.height }}</h6>
+              <h6>Weight: {{ post.weight }}</h6>
+              <h6>Preferred Foot: {{ post.foot }}</h6>
+              <h6>Age: {{ post.age }}</h6>
+            </a>
+          </div>
+        </div>
+        <div v-if="passive" class="wrapper2">
+          <div class="card" v-for=" item in myArray">
+            <a>
+              <img v-bind:src="item.img" />
+              <h4>{{ item.name }}</h4>
+              <h6>Country: {{ item.country }}</h6>
+              <h6>Club: {{ item.club }}</h6>
+              <h6>Height: {{ item.height }}</h6>
+              <h6>Weight: {{ item.weight }}</h6>
+              <h6>Preferred Foot: {{ item.foot }}</h6>
+              <h6>Age: {{ item.age }}</h6>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
